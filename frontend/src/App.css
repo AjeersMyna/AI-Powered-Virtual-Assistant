@@ -1,0 +1,126 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  max-width: 800px; /* Limit width for desktop */
+  height: 90vh; /* Make it fill most of the screen height */
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.chat-window {
+  flex-grow: 1; /* Takes up available space */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  overflow-y: auto; /* Enable scrolling for messages */
+  margin-bottom: 15px;
+  background-color: #e9ebee;
+  display: flex; /* For pushing messages to bottom */
+  flex-direction: column; /* For pushing messages to bottom */
+}
+
+.message-bubble {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  word-wrap: break-word; /* Ensures long words wrap */
+}
+
+.message-bubble.user {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end; /* Align user messages to the right */
+  border-bottom-right-radius: 5px; /* Sharpen one corner */
+}
+
+.message-bubble.ai {
+  background-color: #f8f9fa;
+  color: #333;
+  align-self: flex-start; /* Align AI messages to the left */
+  border: 1px solid #eee;
+  border-bottom-left-radius: 5px; /* Sharpen one corner */
+}
+
+.message-bubble.ai.loading {
+  font-style: italic;
+  color: #666;
+  background-color: #f0f0f0;
+}
+
+.input-box {
+  display: flex;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.input-box input {
+  flex-grow: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  margin-right: 10px;
+  font-size: 16px;
+  outline: none; /* Remove outline on focus */
+}
+
+.input-box input:focus {
+  border-color: #007bff;
+}
+
+.input-box button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.input-box button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.input-box button:disabled {
+  background-color: #a0c9f1;
+  cursor: not-allowed;
+}
+
+/* Basic responsiveness */
+@media (max-width: 768px) {
+  #root {
+    height: 100vh; /* Full height on smaller screens */
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
